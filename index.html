@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YAC – Understanding is the first investment</title>
+<meta name="description" content="YAC explains your portfolio, any stock or fund, and the small print in your financial papers, in plain words. Free for Android, no ads.">
+<meta name="theme-color" content="#1F5C45">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:Inter;src:url(/assets/inter_regular.ttf);font-weight:400}
+@font-face{font-family:Inter;src:url(/assets/inter_medium.ttf);font-weight:500 700}
+@font-face{font-family:Playfair;src:url(/assets/playfair_display_regular.ttf);font-weight:400}
+@font-face{font-family:Playfair;src:url(/assets/playfair_display_semibold.ttf);font-weight:600}
+@font-face{font-family:Playfair;src:url(/assets/playfair_display_bold.ttf);font-weight:700}
+:root{--bg:#F2F6F3;--primary:#1F5C45;--mid:#3E8A68;--well:#E4F0E8;--text:#13241B;--muted:#5F6B65;--stroke:#E3ECE6;--navy:#061832;
+--good:#2F7A57;--goodbg:#E4F0E8;--okay:#9A6A12;--okaybg:#FBF1DC;--bad:#C2410C;--badbg:#FBE7DD;--track:#EDF2EF;--deep:#0E2E22}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.pf{font-family:Playfair,Georgia,serif}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+a{color:var(--primary)}
+.eyebrow{font:500 12px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--mid)}
+
+/* nav */
+nav.top{position:absolute;top:0;left:0;right:0;z-index:10}
+nav.top .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
+.logo{font:700 30px Playfair;color:var(--primary);letter-spacing:.04em;text-decoration:none}
+nav.top .links{display:flex;gap:32px;align-items:center}
+nav.top .links a{color:var(--text);text-decoration:none;font-size:15px;font-weight:500}
+nav.top .links a.cta{background:var(--primary);color:#fff;padding:10px 20px;border-radius:14px}
+
+/* hero */
+.hero{position:relative;min-height:820px;overflow:hidden;background:var(--bg)}
+.hero .art{position:absolute;right:0;top:0;bottom:0;width:68%;background:url(/assets/analyze_bg_exchange.webp) center/cover no-repeat}
+.hero .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(242,246,243,.92) 22%,rgba(242,246,243,.35) 55%,rgba(242,246,243,.15) 100%),linear-gradient(0deg,var(--bg) 0%,rgba(242,246,243,0) 30%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;min-height:820px;padding-top:60px}
+.hero h1{font:700 70px/1.04 Playfair;color:var(--text);margin:18px 0 22px;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;color:var(--primary);font-weight:600}
+.hero p.sub{font-size:20px;color:var(--muted);max-width:480px;margin:0 0 34px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 26px;border-radius:14px;font:500 16px Inter;text-decoration:none}
+.btn.p{background:var(--primary);color:#fff;box-shadow:0 12px 30px rgba(31,92,69,.25)}
+.btn.s{background:#fff;color:var(--primary);border:1px solid var(--stroke);margin-left:12px}
+.trust{display:flex;gap:24px;margin-top:30px;color:var(--muted);font-size:14px;flex-wrap:wrap}
+.trust span{display:flex;align-items:center;gap:8px}
+.trust i{width:20px;height:20px;border-radius:50%;background:var(--well);display:grid;place-items:center}
+.trust i::after{content:"";width:6px;height:3px;border-left:1.6px solid var(--primary);border-bottom:1.6px solid var(--primary);transform:rotate(-45deg) translate(1px,-1px)}
+
+/* phone */
+.phone{width:300px;height:620px;border-radius:46px;background:#0b1410;padding:10px;box-shadow:0 60px 90px -20px rgba(14,46,34,.45),0 0 0 1px rgba(0,0,0,.4) inset;position:relative;flex:none}
+.phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:14px;background:#0b1410;z-index:3}
+.scr{background:var(--bg);border-radius:37px;height:100%;overflow:hidden;position:relative;font-family:Inter;color:var(--text)}
+.sb{height:46px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 26px 4px;font:500 12px Inter}
+.sc{padding:8px 16px 16px}
+.card{background:#fff;border:1px solid var(--stroke);border-radius:18px;padding:14px}
+.tb{display:flex;align-items:center;gap:12px;padding:6px 16px 10px}
+.tb .bk{width:34px;height:34px;border-radius:12px;background:var(--well);display:grid;place-items:center}
+.tb .bk::after{content:"";width:8px;height:8px;border-left:2px solid var(--primary);border-bottom:2px solid var(--primary);transform:rotate(45deg) translate(1px,-1px)}
+.tb b{font:700 19px Playfair;color:var(--text)}
+.lbl{font-size:10.5px;color:var(--muted)}
+.cap{font:500 9.5px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pill{display:inline-block;font:500 10px Inter;padding:3px 9px;border-radius:99px}
+.g{background:var(--goodbg);color:var(--good)}.o{background:var(--okaybg);color:var(--okay)}.r{background:var(--badbg);color:var(--bad)}
+
+/* sections */
+section{padding:120px 0}
+h2{font:700 50px/1.1 Playfair;margin:12px 0 16px;letter-spacing:-.3px}
+.lead{font-size:19px;color:var(--muted);max-width:600px;margin:0}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;margin-top:110px}
+.feat.rev .stage{order:2}
+.stage{position:relative;height:640px;border-radius:36px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.stage .bgimg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.55}
+.stage::after{content:"";position:absolute;inset:0;background:radial-gradient(closest-side,rgba(242,246,243,.0),rgba(242,246,243,.55))}
+.stage .phone{z-index:2;transform:scale(.94)}
+.feat .num{font:600 16px Playfair;color:var(--mid);font-style:italic}
+.feat h3{font:700 40px/1.12 Playfair;margin:10px 0 16px}
+.feat p{color:var(--muted);font-size:18px;margin:0 0 22px}
+.ticks{list-style:none;margin:0;padding:0}
+.ticks li{position:relative;padding:8px 0 8px 34px;font-size:16px;border-bottom:1px solid var(--stroke)}
+.ticks li:last-child{border:0}
+.ticks li::before{content:"";position:absolute;left:0;top:11px;width:22px;height:22px;border-radius:8px;background:var(--well)}
+.ticks li::after{content:"";position:absolute;left:7px;top:17px;width:8px;height:4px;border-left:2px solid var(--primary);border-bottom:2px solid var(--primary);transform:rotate(-45deg)}
+
+/* promise */
+.promise{position:relative;border-radius:40px;overflow:hidden;color:#fff;padding:80px}
+.promise .bgimg{position:absolute;inset:0;background:url(/assets/home_hero_exchange.webp) center 30%/cover}
+.promise::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,46,34,.97) 30%,rgba(14,46,34,.82) 65%,rgba(14,46,34,.6));z-index:1}
+.promise>*:not(.bgimg){position:relative;z-index:2}
+.promise h2{color:#fff;max-width:640px}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:50px}
+.pg div{border-top:1px solid rgba(255,255,255,.18);padding-top:22px}
+.pg b{display:block;font:600 22px Playfair;margin-bottom:6px}
+.pg span{color:#bcd2c6;font-size:15.5px}
+
+/* download */
+.dl{display:grid;grid-template-columns:1.15fr 1fr;gap:70px;align-items:start}
+.steps .st{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--stroke)}
+.steps .st:last-child{border:0}
+.st .n{flex:none;width:40px;height:40px;border-radius:14px;background:#fff;border:1px solid var(--stroke);display:grid;place-items:center;font:700 17px Playfair;color:var(--primary)}
+.st b{display:block;font-weight:500}.st span{color:var(--muted);font-size:15px}
+.qr{display:flex;gap:18px;align-items:center;margin-top:28px;background:#fff;border:1px solid var(--stroke);border-radius:20px;padding:16px;max-width:400px}
+.fp{font:12.5px ui-monospace,Menlo,monospace;color:var(--muted);margin-top:16px}
+footer{border-top:1px solid var(--stroke);padding:40px 0;margin-top:40px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer nav a{color:var(--muted);text-decoration:none;margin-left:24px;font-size:15px}
+footer small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px}
+</style></head><body>
+
+<nav class="top"><div class="wrap"><a class="logo" href="/">YAC</a>
+<div class="links"><a href="#features">Features</a><a href="#promise">Safety</a><a href="/contact/">Contact</a><a class="cta" href="#download">Download</a></div></div></nav>
+
+<!-- HERO -->
+<header class="hero">
+<div class="art"></div>
+<div class="wrap">
+<div>
+<div class="eyebrow">For everyday investors</div>
+<h1>Understanding is the first <em>investment.</em></h1>
+<p class="sub">YAC explains your portfolio, any stock or fund, and the small print in your papers. In plain words, before it costs you.</p>
+<a class="btn p" href="#download"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download for Android</a><a class="btn s" href="#download">Google Play · soon</a>
+<div class="trust"><span><i></i>Free, no ads</span><span><i></i>Data never sold</span><span><i></i>Portfolio stays on your phone</span></div>
+</div>
+
+<div style="display:flex;justify-content:center">
+ <!-- HOME SCREEN (activity_main.xml) -->
+ <div class="phone"><div class="scr">
+  <div class="sb"><span>9:41</span><span>●●● 5G</span></div>
+  <div style="padding:6px 16px 0">
+   <div style="display:flex;align-items:center;gap:8px">
+    <div style="flex:1"><div style="font:700 26px Playfair;color:var(--primary);letter-spacing:.04em;line-height:1">YAC</div><div style="font:500 8px Inter;letter-spacing:.18em;color:var(--muted);margin-top:3px">YADAV CAPITAL</div></div>
+    <div style="width:36px;height:36px;border-radius:12px;background:var(--well);display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div>
+    <div style="width:36px;height:36px;border-radius:12px;background:var(--well);display:grid;place-items:center;position:relative"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><i style="position:absolute;top:8px;right:9px;width:7px;height:7px;border-radius:50%;background:#E8693C"></i></div>
+    <div style="width:36px;height:36px;border-radius:12px;background:var(--well);display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div>
+   </div>
+   <div class="card" style="padding:0;overflow:hidden;margin-top:14px;border-radius:20px">
+    <div style="height:118px;background:url(/assets/home_hero_exchange.webp) center/cover;position:relative"><div style="position:absolute;left:0;right:0;bottom:0;height:44px;background:linear-gradient(0deg,#fff,rgba(255,255,255,0))"></div></div>
+    <div style="padding:2px 14px 14px">
+     <div style="font:500 8.5px Inter;letter-spacing:.12em;color:var(--mid)">FOR EVERYDAY INVESTORS</div>
+     <div style="font:700 17px/1.2 Playfair;margin-top:4px">Understanding is the first investment.</div>
+     <div style="font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.45">Quantitative analysis of portfolios, assets and agreements, explained in plain words.</div>
+     <div style="margin-top:11px;height:36px;border-radius:12px;background:var(--primary);color:#fff;display:grid;place-items:center;font:500 12px Inter">Start analyzing</div>
+    </div>
+   </div>
+   <div class="cap" style="margin:16px 4px 8px">Explore</div>
+   <div class="card" style="padding:4px 12px;border-radius:20px">
+    <!-- rows -->
+    <div style="display:flex;gap:11px;align-items:center;padding:8px 0;border-bottom:1px solid var(--stroke)"><div style="width:32px;height:32px;border-radius:11px;background:var(--well);display:grid;place-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/></svg></div><div style="flex:1"><div style="font:500 12px Inter">Analyze</div><div class="lbl">Deeper insight across stocks, funds, crypto.</div></div></div>
+    <div style="display:flex;gap:11px;align-items:center;padding:8px 0;border-bottom:1px solid var(--stroke)"><div style="width:32px;height:32px;border-radius:11px;background:var(--well);display:grid;place-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><path d="M12 3v18M5 7h14M5 7l-3 7a4 4 0 0 0 6 0zM19 7l-3 7a4 4 0 0 0 6 0z"/></svg></div><div style="flex:1"><div style="font:500 12px Inter">Find &amp; Compare</div><div class="lbl">Rank products with YAC Score.</div></div></div>
+    <div style="display:flex;gap:11px;align-items:center;padding:8px 0;border-bottom:1px solid var(--stroke)"><div style="width:32px;height:32px;border-radius:11px;background:var(--well);display:grid;place-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><path d="M12 3v18M12 3a9 9 0 1 0 9 9h-9z"/></svg></div><div style="flex:1"><div style="font:500 12px Inter">Portfolio</div><div class="lbl">Track holdings across every asset.</div></div></div>
+    <div style="display:flex;gap:11px;align-items:center;padding:8px 0;border-bottom:1px solid var(--stroke)"><div style="width:32px;height:32px;border-radius:11px;background:var(--well);display:grid;place-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div><div style="flex:1"><div style="font:500 12px Inter">Documents</div><div class="lbl">Scan any financial paper and spot its risks.</div></div></div>
+    <div style="display:flex;gap:11px;align-items:center;padding:8px 0"><div style="width:32px;height:32px;border-radius:11px;background:var(--well);display:grid;place-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><div style="flex:1"><div style="font:500 12px Inter">News</div><div class="lbl">Live headlines for markets and money.</div></div></div>
+   </div>
+  </div>
+ </div></div>
+</div>
+</div>
+</header>
+
+<!-- FEATURES -->
+<section id="features" style="padding-top:60px"><div class="wrap">
+<div class="eyebrow">What YAC does</div>
+<h2>A careful friend for your money</h2>
+<p class="lead">No tips, no hype, no jargon. Just what each thing really means for you.</p>
+
+<!-- DOCUMENTS -->
+<div class="feat">
+<div class="stage"><div class="bgimg" style="background-image:url(/assets/compare_bg_exchange.webp)"></div>
+ <div class="phone"><div class="scr">
+  <div class="sb"><span>9:41</span><span>●●● 5G</span></div>
+  <div class="tb"><span class="bk"></span><b>Documents</b></div>
+  <div class="sc" style="padding-top:0">
+   <div class="card" style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:42px;border-radius:6px;background:var(--well);display:grid;place-items:center;font:600 8px Inter;color:var(--primary)">PDF</div><div><div style="font:500 12px Inter">Personal loan agreement</div><div class="lbl">Sample Finance Ltd. · 1 page</div></div></div>
+   <div class="card" style="margin-top:10px;background:var(--badbg);border-color:#F4D3C2">
+    <div style="font:700 15px Playfair;color:var(--bad)">Read this before you sign</div>
+    <div style="font-size:10.5px;color:#7a3a1a;margin-top:3px;line-height:1.45">This loan costs more than its 14.5% rate shows, and the rate can rise.</div>
+   </div>
+   <div style="font:700 14px Playfair;margin:14px 2px 6px">What can take your money (4)</div>
+   <div class="card" style="padding:4px 12px">
+    <div style="padding:9px 0;border-bottom:1px solid var(--stroke)"><div style="display:flex;justify-content:space-between;gap:6px"><span style="font:500 11.5px Inter">Insurance added to your loan</span><span class="pill r">Careful</span></div><div class="lbl" style="margin-top:2px">₹9,800 premium is added, so you pay interest on it too.</div></div>
+    <div style="padding:9px 0;border-bottom:1px solid var(--stroke)"><div style="display:flex;justify-content:space-between;gap:6px"><span style="font:500 11.5px Inter">Rate can change</span><span class="pill r">Careful</span></div><div class="lbl" style="margin-top:2px">Floating 14.5%. The lender may revise it at its own will.</div></div>
+    <div style="padding:9px 0;border-bottom:1px solid var(--stroke)"><div style="display:flex;justify-content:space-between;gap:6px"><span style="font:500 11.5px Inter">Hard to close early</span><span class="pill r">Careful</span></div><div class="lbl" style="margin-top:2px">No prepayment for 12 months, then 4% + GST.</div></div>
+    <div style="padding:9px 0"><div style="display:flex;justify-content:space-between;gap:6px"><span style="font:500 11.5px Inter">Fees on top</span><span class="pill o">Check</span></div><div class="lbl" style="margin-top:2px">3% processing + GST, ₹590 per bounce, ₹499 a year.</div></div>
+   </div>
+  </div>
+ </div></div>
+</div>
+<div><div class="num">01 · Documents</div><h3>Reads the small print, so you don't miss it</h3><p>Upload or photograph any loan, insurance, lease or contract. YAC points out the risks, hidden costs and what you must do, risks first.</p>
+<ul class="ticks"><li>Fees, GST, bounce and annual charges</li><li>Floating rates and lock-in penalties</li><li>Insurance quietly added to loans</li></ul></div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="feat rev">
+<div class="stage"><div class="bgimg" style="background-image:url(/assets/invest_hero_exchange.webp)"></div>
+ <div class="phone"><div class="scr">
+  <div class="sb"><span>9:41</span><span>●●● 5G</span></div>
+  <div class="tb"><span class="bk"></span><b>Portfolio</b></div>
+  <div class="sc" style="padding-top:0">
+   <div style="display:flex;background:var(--track);border-radius:14px;padding:3px;font:500 11px Inter;text-align:center"><div style="flex:1;background:#fff;border-radius:11px;padding:6px">Holdings</div><div style="flex:1;padding:6px;color:var(--muted)">Health</div><div style="flex:1;padding:6px;color:var(--muted)">Growth</div></div>
+   <div class="card" style="margin-top:10px">
+    <div class="lbl">Worth now</div>
+    <div style="font:600 25px Inter;letter-spacing:-.5px">₹4,86,240</div>
+    <div style="font:500 11px Inter;color:var(--good)">▲ ₹3,120 today</div>
+    <div style="display:flex;margin-top:10px;padding-top:10px;border-top:1px solid var(--stroke)"><div style="flex:1"><div class="lbl">Total gain</div><div style="font:500 13px Inter;color:var(--good)">+₹61,240</div></div><div style="width:1px;background:var(--stroke);margin:0 12px"></div><div style="flex:1"><div class="lbl">Per year</div><div style="font:500 13px Inter">13.8%</div></div></div>
+   </div>
+   <div class="card" style="margin-top:10px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 12px Inter">Risk check: Some risks to fix</span><span class="pill o">Medium</span></div>
+    <div class="lbl" style="margin-top:4px">A fall like last year's worst would cost about <b style="color:var(--text)">₹58,300</b>.</div>
+   </div>
+   <div class="card" style="margin-top:10px">
+    <div style="font:700 14px Playfair">How much could you lose?</div>
+    <div class="lbl">In rupees, on today's money</div>
+    <div style="position:relative;height:22px;margin-top:10px"><div style="position:absolute;top:6px;left:0;right:0;height:10px;border-radius:5px;background:var(--track)"></div><div style="position:absolute;top:6px;left:0;width:60%;height:10px;border-radius:5px;background:var(--okay)"></div><div style="position:absolute;left:75%;top:0;bottom:0;width:2px;background:var(--text)"></div></div>
+    <div style="display:flex;justify-content:space-between" class="lbl"><span>Last year's worst fall −12%</span><span>Your limit 15%</span></div>
+    <div style="margin-top:10px;background:var(--goodbg);border-radius:12px;padding:9px 10px"><div style="font:500 11.5px Inter;color:var(--good)">Within your limit</div><div class="lbl" style="color:#3d6b55">Check again now and then, because markets change.</div></div>
+   </div>
+   <div class="card" style="margin-top:10px;padding:10px 12px"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 11.5px Inter">Tata Motors</span><span style="font:500 11px Inter;color:var(--bad)">▼ 3.40%</span></div><div class="lbl">38% of your money · <span style="color:var(--bad)">too big</span></div></div>
+  </div>
+ </div></div>
+</div>
+<div><div class="num">02 · Portfolio</div><h3>Your risk in rupees, not ratios</h3><p>Add what you own and see its value live. YAC goes through a year of prices and tells you, in rupees, how much a bad stretch could cost, and what to change.</p>
+<ul class="ticks"><li>Loss limit you choose, with alerts</li><li>Too-big holdings flagged early</li><li>Fixes tested on last year's real prices</li></ul></div>
+</div>
+
+<!-- ASSET PROFILE -->
+<div class="feat">
+<div class="stage"><div class="bgimg" style="background-image:url(/assets/login_hero_wallst.webp);filter:sepia(.4) hue-rotate(80deg) saturate(.6)"></div>
+ <div class="phone"><div class="scr">
+  <div class="sb"><span>9:41</span><span>●●● 5G</span></div>
+  <div class="tb"><span class="bk"></span><b>Asset Profile</b></div>
+  <div class="sc" style="padding-top:0">
+   <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font:700 17px Playfair">HDFC Bank</div><div class="lbl">Company share · Big company</div></div><div style="text-align:right"><div style="font:600 15px Inter">₹1,742</div><div style="font:500 10.5px Inter;color:var(--good)">▲ 0.84%</div></div></div>
+    <div style="display:flex;background:var(--track);border-radius:12px;padding:3px;font:500 10.5px Inter;text-align:center;margin-top:10px"><div style="flex:1;background:#fff;border-radius:9px;padding:4px">Simple</div><div style="flex:1;padding:4px;color:var(--muted)">Pro</div></div>
+   </div>
+   <div class="card" style="margin-top:10px">
+    <div style="font:700 14px Playfair">In one look</div><div class="lbl">The whole story in a few lines</div>
+    <div style="margin-top:8px;background:var(--goodbg);color:var(--good);border-radius:10px;padding:7px 10px;font:500 11px Inter">Looks healthy on most checks.</div>
+   </div>
+   <div class="card" style="margin-top:10px">
+    <div style="font:700 14px Playfair">Strength map</div><div class="lbl">The bigger the shape, the healthier</div>
+    <svg viewBox="0 0 200 150" width="100%" style="margin-top:4px">
+     <g fill="none" stroke="#E3ECE6"><polygon points="100,12 176,52 158,132 42,132 24,52"/><polygon points="100,42 145,66 135,112 65,112 55,66"/></g>
+     <g stroke="#E3ECE6"><line x1="100" y1="78" x2="100" y2="12"/><line x1="100" y1="78" x2="176" y2="52"/><line x1="100" y1="78" x2="158" y2="132"/><line x1="100" y1="78" x2="42" y2="132"/><line x1="100" y1="78" x2="24" y2="52"/></g>
+     <polygon points="100,20 160,57 140,118 62,116 40,60" fill="#3E8A68" fill-opacity=".22" stroke="#1F5C45" stroke-width="2"/>
+     <g font-family="Inter" font-size="8.5" fill="#5F6B65" text-anchor="middle"><text x="100" y="8">Growth</text><text x="186" y="50">Calm</text><text x="166" y="144">Quality</text><text x="36" y="144">Price tag</text><text x="16" y="48">Trend</text></g>
+    </svg>
+   </div>
+   <div class="card" style="margin-top:10px;padding:4px 12px">
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--stroke)"><span style="font-size:11px">1-year growth</span><span style="font:500 11px Inter;color:var(--good)">+14.2%</span></div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--stroke)"><span style="font-size:11px">Bumpiness</span><span class="pill o">Some ups and downs</span></div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0"><span style="font-size:11px">Worst fall</span><span style="font:500 11px Inter;color:var(--bad)">−18.6%</span></div>
+   </div>
+  </div>
+ </div></div>
+</div>
+<div><div class="num">03 · Any asset</div><h3>Any stock or fund, explained in one look</h3><p>What it is, how risky it is, and how hard it has fallen before. Switch between Simple and Pro, and compare two side by side with a plain verdict.</p>
+<ul class="ticks"><li>Strength map and six vital signs</li><li>Financial statements explained</li><li>Side-by-side compare</li></ul></div>
+</div>
+</div></section>
+
+<!-- PROMISE -->
+<section id="promise" style="padding-top:0"><div class="wrap"><div class="promise"><div class="bgimg"></div>
+<div class="eyebrow" style="color:#9fd0b4">Our promise</div>
+<h2>Built to protect you, not to sell to you</h2>
+<div class="pg">
+<div><b>No ads</b><span>Nothing pushed at you, ever.</span></div>
+<div><b>Data never sold</b><span>No selling and no tracking analytics.</span></div>
+<div><b>On your phone</b><span>Your holdings and documents stay with you.</span></div>
+<div><b>Honest answers</b><span>If a bank FD is better for your goal, YAC says so.</span></div>
+</div></div></div></section>
+
+<!-- DOWNLOAD -->
+<section id="download" style="padding-top:0"><div class="wrap dl">
+<div>
+<div class="eyebrow">Download</div>
+<h2>Get YAC on your phone</h2>
+<p class="lead">Free for Android 8 and newer. Android shows a warning for apps from outside Play Store. That's normal, and you can check the file is really ours.</p>
+<div style="margin-top:30px"><a class="btn p" href="#download"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download YAC (APK)</a></div>
+<div style="font-size:13.5px;color:var(--muted);margin-top:12px">Version 1.0 · [size] MB · Android 8 or newer</div>
+<div class="qr">
+ <div style="flex:none;width:56px;height:56px;border-radius:16px;background:var(--well);display:grid;place-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F5C45" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+ <span style="font-size:14px;color:var(--muted)"><b style="color:var(--text);font-weight:500">On a computer?</b><br>Open <b style="color:var(--primary);font-weight:500">yac.finance</b> on your Android phone to download.</span>
+</div>
+</div>
+<div class="steps">
+<div class="st"><div class="n">1</div><div><b>Tap Download</b><span>The file saves to your phone.</span></div></div>
+<div class="st"><div class="n">2</div><div><b>Open the file</b><span>From the notification or your Downloads.</span></div></div>
+<div class="st"><div class="n">3</div><div><b>Allow this install</b><span>Android asks once. Allow it for your browser.</span></div></div>
+<div class="st"><div class="n">4</div><div><b>Install and open YAC</b><span>No account needed to start.</span></div></div>
+<div class="fp">SHA-256: [fill after build]</div>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<div><a class="logo" href="/" style="font-size:24px">YAC</a><small>YAC is a product of Yadav Capital · © 2026 · For education only, not investment advice.</small></div>
+<nav><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/refunds/">Refunds</a><a href="/shipping/">Shipping</a><a href="/contact/">Contact</a><a href="/delete-account/">Delete account</a></nav>
+</div></footer>
+</body></html>
