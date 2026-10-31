@@ -91,6 +91,6 @@ footer.site nav a{color:var(--muted);margin-right:16px;text-decoration:none}
 footer.site nav a:hover{color:var(--primary)}
 
 @media (max-width:620px){
-  header.site nav a.hide-sm{display:none}
+  header.site nav a.hide-sm{display:none}}/* phone + force light */:root{color-scheme:light only}html,body{overflow-x:hidden}@media (max-width:620px){.wrap{padding:0 20px}header.site .wrap{height:64px}.logo{font-size:24px}header.site nav a{margin-left:14px;font-size:14px}main.doc{padding:32px 0 48px}main.doc h1{font-size:34px}main.doc h2{font-size:21px}table.info td{display:block;width:100%!important;padding:8px 14px}table.info td:first-child{padding-bottom:0}footer.site .wrap{flex-direction:column}footer.site nav{display:flex;flex-wrap:wrap;gap:8px 16px}footer.site nav a{margin-right:0}
   .pill.ghost{margin:10px 0 0 0}
 }
